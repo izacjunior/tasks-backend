@@ -16,7 +16,7 @@ public class DateUtilsTest {
 		System.out.println(DateUtils.isEqualOrFutureDate(date));
 		DateUtils.isEqualOrFutureDate(date);
 	
-		assertTrue(DateUtils.isEqualOrFutureDate(date));
+		assertFalse(DateUtils.isEqualOrFutureDate(date));
 	
 	}
 	
