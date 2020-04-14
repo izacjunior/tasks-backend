@@ -43,7 +43,15 @@ pipeline{
     }
     }
     }
+    stage('Deploy Frontend'){
+        steps{
+        dir('frontend') {
+            git credentialsId: 'git_hub', url: 'https://github.com/izacjunior/tasks-frontend'
+            bat 'mvn clean package'
+            deploy adapters: [tomcat8(credentialsId: 'TomCat_login', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
+        }
+    }
     }
 
     }
-
+}
