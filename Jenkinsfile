@@ -37,8 +37,10 @@ pipeline{
 
     stage('API Test'){
         steps{
+            dir('api-test') {
             git credentialsId: 'git_hub', url: 'https://github.com/izacjunior/api-Tests-WCAquino'        
             bat 'mvn test'
+    }
     }
     }
     }
