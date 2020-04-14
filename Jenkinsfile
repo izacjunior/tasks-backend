@@ -52,6 +52,13 @@ pipeline{
         }
     }
     }
-
+ stage('Funcional Test'){
+        steps{
+            dir('funcional-test') {
+            git credentialsId: 'git_hub', url: 'https://github.com/izacjunior/tasks-Funcional-WCAquino'        
+            bat 'mvn test'
+    }
+    }
+    }
     }
 }
