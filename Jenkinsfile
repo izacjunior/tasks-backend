@@ -34,5 +34,14 @@ pipeline{
             deploy adapters: [tomcat8(credentialsId: 'TomCat_login', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks-backend', war: 'target/tasks-backend.war'
         }
     }
+
+    stage('API Test'){
+        steps{
+            git credentialsId: 'git_hub', url: 'https://github.com/izacjunior/api-Tests-WCAquino'        
+            bat 'mvn test'
     }
-}
+    }
+    }
+
+    }
+
